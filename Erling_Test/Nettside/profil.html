@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiler - IoT Fjernkontroll</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigasjon -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Startside</a></li>
+            <li><a href="innstillinger.html">Innstillinger</a></li>
+            <li><a href="profil.html">Profiler</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main-innhold -->
+    <main>
+        <h1>Administrer enheter og grupper</h1>
+
+        <!-- Liste over parede enheter -->
+        <section id="pairedDevices">
+            <h2>Parede enheter</h2>
+            <p>Velg en enhet for å endre verdier:</p>
+            <ul>
+                <li>
+                    Lyspære 1 <button>Endre verdier</button>
+                </li>
+                <li>
+                    Lyspære 2 <button>Endre verdier</button>
+                </li>
+                <li>
+                    Smarthjem-sensor <button>Endre verdier</button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Gruppering av enheter -->
+        <section id="groupDevices">
+            <h2>Grupper enheter</h2>
+            <p>Lag en gruppe og legg til enheter:</p>
+
+            <!-- Skjema for å lage en gruppe -->
+            <form id="groupForm">
+                <label for="groupName">Gruppenavn:</label>
+                <input type="text" id="groupName" name="groupName" required><br><br>
+
+                <label for="deviceSelect">Velg enhet:</label>
+                <select id="deviceSelect">
+                    <option value="Lyspære 1">Lyspære 1</option>
+                    <option value="Lyspære 2">Lyspære 2</option>
+                    <option value="Smarthjem-sensor">Smarthjem-sensor</option>
+                </select><br><br>
+
+                <button type="button" id="addToGroup">Legg til i gruppe</button>
+            </form>
+
+            <!-- Liste over grupper -->
+            <h3>Dine grupper</h3>
+            <ul id="groupList">
+                <!-- Grupper vil bli vist her -->
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IoT Fjernkontroll</p>
+    </footer>
+
+    <!-- Importer JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

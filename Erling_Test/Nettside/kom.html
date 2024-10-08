@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send data til ESP32</title>
+</head>
+<body>
+    <h1>Send data til ESP32 via Spring Boot Backend</h1>
+
+    <form id="dataForm">
+        <label for="data">Data til ESP32:</label>
+        <input type="text" id="data" name="data" required>
+        <button type="submit">Send til ESP32</button>
+    </form>
+
+    <p id="response"></p>
+
+    <script>
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const data = document.getElementById('data').value;
+            const params = new URLSearchParams({ data: data });
+
+            fetch('http://localhost:8080/sendToEsp32', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: params
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('response').textContent = data;
+            })
+            .catch(error => console.error('Feil ved POST-forespørselen:', error));
+        });
+    </script>
+</body>
+</html>
