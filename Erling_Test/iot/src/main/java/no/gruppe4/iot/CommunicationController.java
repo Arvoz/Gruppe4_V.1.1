@@ -3,6 +3,7 @@ package no.gruppe4.iot;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class CommunicationController {
 
-    private final String esp32Url = "http://192.168.1.100/data";
+    private final String esp32Url = "http://192.168.1.5/data";
 
     // Enkelt GET-endepunkt som returnerer en melding
     @CrossOrigin(origins = "*")  // Tillater forespørsler fra alle opprinnelser
@@ -30,6 +31,8 @@ public class CommunicationController {
         return "Hei, " + name + "! Velkommen til vår Spring Boot backend!";
     }
 
+    @CrossOrigin(origins = "*")
+    @PostMapping("/sendToEsp32")
     public String sendToEsp32(@RequestParam String data) {
         // Opprett en RestTemplate for å sende forespørsel til ESP32
         RestTemplate restTemplate = new RestTemplate();

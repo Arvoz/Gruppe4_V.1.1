@@ -2,8 +2,8 @@
 #include <WebServer.h>
 
 // Sett opp WiFi og server
-const char* ssid = "YourSSID";
-const char* password = "YourPassword";
+const char* ssid = "ZyXEL17B116";
+const char* password = "F84498DC6DAE";
 WebServer server(80);
 
 // Funksjon for å håndtere data sendt fra backend
